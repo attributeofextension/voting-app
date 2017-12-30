@@ -1,0 +1,14 @@
+
+<div class="container-fluid middle pollChart">
+<h2>Congratulations! You voted for {{option}}</h2>
+<h2>{{pollname}}</h2>
+<div id="voteChart" class="voteChart"></div>
+
+<input type="hidden" value="{{pollauthor}}" name="userid" id="pollauthor" />
+<input type="hidden" value="{{pollname}}" name="pollname" id="pollname" />   
+<p>Vote again or share this poll<br><a href="{{url}}">{{url}}</a></p>
+
+
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/scripts/showpoll.js"></script>

@@ -1,0 +1,134 @@
+/* MAIN ====================================*/
+body {                                                          
+    color: blue;
+}
+nav {
+    font-family: Raleway;
+    padding: 0px 100px 0px 100px;
+}
+.navElements {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.header {
+    background-color : #428bca;
+    color : white;
+    text-align:center;
+    font-family: Raleway;
+    font-weight: bold;
+    padding: 50px 0px 50px 0px;
+}
+.header h1 {
+    font-size : 50px;
+}
+.header button {
+    font-size : 15px;
+    width : 150px;
+    font-weight: bold;
+}
+/*HOME=====================================================*/
+.middle {
+    text-align: center;
+    color: #2a2a2a;
+    padding: 30px 5% 30px 5%;
+    font-family:Raleway;
+}
+.middle i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.yellowIcon {
+    color: #ffbb33 !important;
+}
+.redIcon {
+    color: #ff4444 !important;
+}
+.blueIcon {
+    color: #0099CC !important;
+}
+/*SIGNUP======================================================*/
+.signupForm {
+    text-align : left !important;
+    
+}
+.signupForm button {
+     font-size: 15px !important;
+     height : 40px;
+     width : 180px;
+     vertical-align: middle;
+     margin-right: 30px;
+}
+.twitterBtn i {
+    font-size: 12px;
+}
+/*LOGIN=======================================================*/
+.loginForm button {
+    font-size: 12px;
+    height : 30px;
+    width : 100px;
+    margin : 3px;
+}
+.loginForm button.social {
+    width: 206px !important;
+}
+
+.loginForm {
+    margin :auto;
+}
+.loginForm input {
+    width : 300px;
+    margin :auto;
+}
+.alert {
+    color : #d9534f !important;
+    padding-bottom:0px;
+    padding-top: 0px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.alert i {
+    font-size: 12px !important;
+}
+.newpollForm input {
+    width: 400px;
+    margin : auto;
+}
+.newpollForm button {
+    width:200px;
+    margin-bottom: 10px !important;
+}
+.pollChart label {
+    display:inline-block;
+    width:300px;
+}
+
+.voteBtnPanel {
+    width :400px;
+    margin : auto;
+}
+.voteSubmitBtn {
+    width : 400px;
+    margin-top: 8px;
+}
+.voteChart {
+    width : 600px !important;
+    margin: auto;
+}
+.myPolls {
+    
+}
+.myPollsPanel {
+    width : 600px;
+    margin : auto;
+}
+.myPolls button {
+    text-align: right !important;
+}
+.changePasswordForm {
+    margin : auto;
+}
+.changePasswordForm input {
+    width: 300px;
+    margin : auto;
+}

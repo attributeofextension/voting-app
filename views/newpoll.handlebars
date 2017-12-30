@@ -1,0 +1,23 @@
+<div class="container-fluid middle newpollForm">
+    {{#if message}}<small class="form-text text-muted alert"><i class="fa fa-exclamation"></i>{{message}}</p></small>{{/if}}
+    <h3>New Poll</h3>
+    <form method="post" action="/newpoll/">
+     <div class="form-group">
+        <label for="input">Name of your poll</label>
+        <input type="text" class="form-control" id="newpollName" name="name" placeholder="Something to compare?">
+      </div>
+  <div class="form-group" id="newpollOptionPanel">
+    <label for="input">Options</label>
+    <input type="text" class="form-control newpollOption" name="options" placeholder="Apples">
+    <input type="text" class="form-control newpollOption" name="options" placeholder="Oranges">
+  </div>
+   <div class="row justify-content-center">
+      <button class="btn btn-light btn-outline-secondary" type="button" id="addOptionBtn">Another Option</button>
+  </div>
+  <div class="row justify-content-center">
+      <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+ </form>
+</div>
+
+<script src="/scripts/newpoll.js"></script>

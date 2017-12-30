@@ -1,0 +1,31 @@
+
+<div class="container-fluid middle pollChart">
+<h2>{{pollname}}</h2>
+<p>By {{pollauthor}}</p>
+<div id="voteChart" class="voteChart"></div>
+<form method="post" action="/vote/">
+{{#if message}}<small class="form-text text-muted alert"><i class="fa fa-exclamation"></i>{{message}}</p></small>{{/if}}
+<div class="btn-group-vertical voteBtnPanel" data-toggle="buttons" id="voteBtnPanel">
+    {{#each options}}
+    <label class="btn btn-primary">
+        <input type="radio" name="options" id="{{option}}" value="{{option}}" autocomplete="off" checked>{{option}}
+    </label>
+    {{/each}}
+</div>
+<div class="voteSubmit">
+<input type="hidden" value="{{userid}}" name="userid" id="pollauthor" />
+<input type="hidden" value="{{pollname}}" name="pollname" id="pollname" />   
+    <div class="input-group voteBtnPanel">
+      <input type="text" class="form-control" placeholder="Add a New Option" name="newoption" id="addInput">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="submit" name="addoption" id="addBtn" formaction="/polls/add">+</button>
+      </span>
+    </div>
+    <div class='row'></div>
+        <button type="submit" class="btn btn-success voteSubmitBtn" name="vote" id="voteSubmit" formaction="/polls/vote">Vote</button>
+    </div>
+</div>
+</form>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/scripts/showpoll.js"></script>

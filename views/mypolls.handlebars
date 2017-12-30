@@ -1,0 +1,24 @@
+<div class="container-fluid middle myPolls">
+    <h2>These are my polls</h2>
+   
+   <div class="container myPollsPanel">
+    {{#if message}}<small class="form-text text-muted alert"><i class="fa fa-exclamation"></i>{{message}}</p></small>{{/if}}
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        {{#unless polls}}
+        <li class="list-group-item">You currently have no polls</li>
+        {{/unless}}
+        {{#each polls}}
+        <li class="list-group-item">
+        <form method="post" action="/mypolls">
+        <input type="hidden" value="{{userid}}" name="userid" id="pollauthor" />
+        <input type="hidden" value="{{name}}" name="pollname" id="pollname" />
+        <input type="hidden" value="{{_id}}" name="pollid" id="pollname" />
+        <a href="{{url}}">{{name}}</a><button type="submit" name="delete" class="btn btn-secondary btn-sm float-right">Delete</button>
+        </form>    
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+</div>
+</div>
