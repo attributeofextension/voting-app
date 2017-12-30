@@ -1,4 +1,4 @@
-var baseURL = "https://5dde5d7e53924142b8f03bbe3e9873f8.vfs.cloud9.us-east-2.amazonaws.com/";
+var baseURL = "https://fcc-leahcarr-voting-app.herokuapp.com/";
 
 function redirectToSignup(event) {
     window.location = baseURL + "signup";
