@@ -4,6 +4,7 @@ var expressSession = require('express-session');
 var exphbs = require("express-handlebars")
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
+var TwitterStrategy = require("passport-twitter").Strategy;
 var bcrypt = require("bcrypt");
 var mongo = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
@@ -19,7 +20,7 @@ mongoose.Promise = global.Promise;
 var userSchema = new mongoose.Schema({
 	name:String,
 	email:String,
-	password: String
+	password: String,
 },{collection:'users'});
 var User = mongoose.model("User",userSchema);
 
@@ -58,8 +59,14 @@ passport.deserializeUser(function(id,done) {
   });
 });
 
-//PASSPORT Registration stategy
+var twitterAuth =  {
+        'consumerKey'       : '0xULWnPxGNwLjy6bBzbwGhMuK',
+        'consumerSecret'    : 'venT0lnHYnnZtIxZD407BjZNFvYDrxbVqWumaCruTZ7eWkAYi3',
+        'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
+    };
 
+
+//PASSPORT STRATEGIES
 //Sign up strategy
 passport.use('signup', new LocalStrategy({
     passReqToCallback : true,
@@ -133,12 +140,65 @@ passport.use('login', new LocalStrategy({
     });
   })
 );
+//Passport-twitter
+passport.use(new TwitterStrategy({ 
+    consumerKey : twitterAuth.consumerKey, 
+    consumerSecret: twitterAuth.consumerSecret,
+    callbackURL : twitterAuth.callbackURL 
+  },function(token, tokenSecret, profile, done) {
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+      if(err) {
+        console.log("Error retrieving TwitterUser: " + err);
+        return done(err);
+      }
+      if(user) {
+        return done(null,user);
+      } else {
+        
+        var newUser = new User();
+        
+        newUser.twitter.id = profile.id;
+        newUser.twitter.token = token;
+        newUser.twitter.username = profile.username;
+        newUser.twitter.displayName = profile.displayName;
+        
+        newUser.save(function(err) {
+          if(err) {
+            console.log("Error adding new TwitterUser: " + err);
+            throw err;
+          } else {
+            return done(err,newUser);      
+          }
+        });
+      }
+    });
+  }
+));
+
+
 
 //Handlebars
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine','handlebars');
 
 //============ROUTES=================================
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+app.get("/auth/twitter", passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback',
+        passport.authenticate('twitter', {
+            successRedirect : '/',
+            failureRedirect : '/auth/twitter'
+}));
+
 app.use(express.static('public'));
 app.get('/', function(req,res) {
     var name = "user";
