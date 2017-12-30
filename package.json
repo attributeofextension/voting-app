@@ -33,5 +33,5 @@
     "mongoose": "^4.13.8",
     "passport-local": "^1.0.0"
   },
-  { "engines" : { "node" : "4.1.2" } }
+  "engines" : { "node" : "4.1.2" }
 }
