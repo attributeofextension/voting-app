@@ -188,7 +188,7 @@ app.get('/browseall', function(req,res){
       if(req.user) {
         name = req.user.name;
       }
-      res.render('browseall',{user: null,username: name, front:false, polls:polls}); 
+      res.render('browseall',{user: req.user, username: name, front:true, polls:polls}); 
     }
   });
 });
