@@ -132,3 +132,17 @@ nav {
     width: 300px;
     margin : auto;
 }
+
+#signature {
+	font-size: 12px;
+}
+#signature a:link {
+	color: #f0d060;
+}
+#signature a:visited {
+	color: #f0d060;
+}
+#signature a:hover {
+	color: #ff00ff;
+	text-decoration:none;
+}
