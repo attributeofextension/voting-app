@@ -35,10 +35,11 @@
                      <a class="dropdown-item" href="https://fcc-leahcarr-voting-app.herokuapp.com/newpoll">New Poll</a>
                 </div>
             </li>
+            {{#unless user.twitter}}
             <li class="nav-item">
              <a class="nav-link" href="https://fcc-leahcarr-voting-app.herokuapp.com/changepassword"><i class="fa fa-gear"></i></a>
             </li>
-            
+            {{/unless}}
             <li class="nav-item">
              <a class="nav-link" href="https://fcc-leahcarr-voting-app.herokuapp.com/logout">Logout</a>
           </li>

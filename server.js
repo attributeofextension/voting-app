@@ -19,7 +19,7 @@ mongoose.Promise = global.Promise;
 var userSchema = new mongoose.Schema({
 	name:String,
 	email:String,
-	password: String
+	password: String,
 },{collection:'users'});
 var User = mongoose.model("User",userSchema);
 
@@ -58,8 +58,7 @@ passport.deserializeUser(function(id,done) {
   });
 });
 
-//PASSPORT Registration stategy
-
+//PASSPORT STRATEGIES
 //Sign up strategy
 passport.use('signup', new LocalStrategy({
     passReqToCallback : true,

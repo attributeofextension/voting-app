@@ -2,6 +2,7 @@
 function redirectToSignupLG(event) {
     window.location.replace("https://fcc-leahcarr-voting-app.herokuapp.com/signup");
 }
+
 function stopSubmit(event) {
     event.preventDefault();
 }
@@ -22,7 +23,7 @@ function loaded(event) {
     lgSignup.addEventListener("click",redirectToSignupLG);
     
     var loginForm = document.getElementById("login_form");
-    signupForm.addEventListener("submit",stopSubmit); 
+    signupForm.addEventListener("submit",stopSubmit);
 }
 
 $("document").ready(loaded);
