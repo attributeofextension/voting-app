@@ -1,5 +1,5 @@
 function makePollDataURL(userid,name) {
-  return "https://fcc-leahcarr-voting-app.herokuapp.com//api/polldata?userid=" + userid + "&name=" + name;
+  return "https://fcc-leahcarr-voting-app.herokuapp.com/api/polldata?userid=" + userid + "&name=" + name;
 }
 
 function generateChart(jsondata) {
