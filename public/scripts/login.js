@@ -4,6 +4,7 @@ function redirectToSignupLG(event) {
 }
 function redirectToTwitter(event) {
     window.location.replace("https://fcc-leahcarr-voting-app.herokuapp.com/auth/twitter");
+    document.write("click");
 }
 function stopSubmit(event) {
     event.preventDefault();
